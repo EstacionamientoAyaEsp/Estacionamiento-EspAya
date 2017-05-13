@@ -1,0 +1,178 @@
+.Bold{
+    font-size: 18px;
+    color: #333333;
+    font-family: KhandMedium;
+    width: 158px;
+    line-height: 1.42857143;
+}
+.barra{
+    background-color: #009b9c;
+    color: #fff;
+    font-family: KhandRegular;
+    font-size: 30px;
+    min-height: 62px;
+    padding: 2% 0 0 2%;
+    display: block;
+}
+
+.subtitulo {
+    padding: 0 0 0 2%;
+    color: #333333;
+    font-size: 18px;
+    background-color: #EAF9FE;
+    height: 35px;
+    line-height: 35px;
+    font-family: KhandMedium;
+    display: block;
+}
+.tipo-estacionamiento {
+    padding: 2% 0 0 2%;
+}
+.tipo-estacionamiento li {
+    float: left;
+    width: 33%;
+}
+.tipo-estacionamiento li input {
+    float: left;
+}
+
+.tipo-estacionamiento li div {
+    float: left;
+    margin: 0 0 0 4%;
+    width: 75%;
+}
+.tipo-estacionamiento li div span {
+    display: block;
+}
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+body {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.ck-li {
+    margin-bottom: 15px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+}
+input[type="radio"], input[type="checkbox"] {
+    margin: 4px 0 0;
+    line-height: normal;
+}
+div.left {
+    float: left;
+    margin: 4% 0;
+    min-width: 222px;
+    width: 50%;
+}
+div.left input {
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 1px 2px 1px #eaeaea;
+    color: #666666;
+    display: block;
+    float: left;
+    font-weight: normal;
+    padding: 10px 10px;
+    width: 100%;
+}
+ div.left div.input-append {
+    float: left;
+    width: 48%;
+    margin: 0 2% 0 0;
+}
+ div.left .ico-fecha {
+    background: transparent url(../img/calendario-input.png/) no-repeat scroll right 6px center;
+    width: 75%;
+    margin: 0 0 0 2%;
+}
+div.left .ico-reloj {
+    background: transparent url(../img/calendario-reloj.png) no-repeat scroll right 6px center;
+    width: 75%;
+    margin: 0 0 0 2%;
+}
+div.left .tiempo-estimado {
+    margin: 2% 0 0 0;
+}
+div.left .tiempo-estimado span:first-child {
+    color: #333333;
+    width: 35%;
+}
+div.left .tiempo-estimado span {
+    color: #868686;
+    float: left;
+    font-family: KhandMedium;
+    font-size: 18px;
+    width: 65%;
+}
+.fecha-txt {
+    color: #666666;
+    font-family: RobotoRegular;
+    font-size: 14px;
+    margin: 0 0 2%;
+}
+span {
+    display: block;
+    font-family: RobotoRegular;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input:not([type]), input[type="email"], input[type="number"], input[type="password"],
+input[type="tel"], input[type="url"], input[type="text"] {
+    padding: 1px 0px;
+}
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+}
+input, textarea, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+div {
+    display: block;
+}

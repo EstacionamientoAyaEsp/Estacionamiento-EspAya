@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/fonts.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="col-sm-8 col-md-8">
+            <div class="contColap xs-margin-top-30 xs-margin-bottom-30 contBlock">
+                <div class="ContItem" rol-item="item-1">
+                    <div id="simulador">
+                        <div id="tipo-estacionamiento">
+                            <span class="barra">¿Quieres simular tu estacionamiento?</span>
+                            <span class="subtitulo">
+                                <img class="ico-titulo" src="img/tipo-estacionamiento.png" alt="" title="">
+                                Tipo de estacionamiento									</span>
+                            <ul class="tipo-estacionamiento">
+                                <li class="ck-li">
+                                    <input type="radio" name="group" id="tipo-estacionamiento" value="ex" checked="checked">
+                                    <div>                                    	
+                                        <span class="Bold">Estacionamiento Expreso</span>
+                                        <span>A pasos del aeropuerto.</span>
+                                    </div>
+                                </li>	
+                                <li class="ck-li">
+                                    <input type="radio" name="group" id="tipo-estacionamiento" value="te">
+                                    <div>                                    	
+                                        <span class="Bold">Estacionamiento Techado</span>
+                                        <span>Entre 200 y 350 metros.</span>
+                                    </div>
+                                </li>	
+                                <li class="ck-li">
+                                    <input type="radio" name="group" id="tipo-estacionamiento" value="ec">
+                                    <div>                                    	
+                                        <span class="Bold">Estacionamiento Económico / Custodia</span>
+                                        <span>Entre 350 y 600 metros.</span>
+                                    </div>
+                                </li>	
+                                <li class="ck-li">
+                                    <input type="radio" name="group" id="tipo-estacionamiento" value="cc">
+                                    <div>                                    	
+                                        <span class="Bold">Estacionamiento Económico / Custodia Carga</span>
+                                        <span>A 800 metros. </span>
+                                    </div>
+                                </li>	
+                                <li class="ck-li">
+                                    <input type="radio" name="group" id="tipo-estacionamiento" value="cm">
+                                    <div>                                    	
+                                        <span class="Bold">Estacionamiento Económico / Custodia Maitén</span>
+                                        <span>A 1,2 kilómetros. </span>
+                                    </div>
+                                </li>	
+                            </ul>
+                        </div>
+                        <div id="tiempo-aproximado">
+                            <span class="subtitulo">
+                                <img class="ico-titulo" src="img/calendario.png" alt="" title="">
+                                Tiempo aproximado de estadía									</span>
+                            <div class="left">
+                                <span class="fecha-txt">Fecha y hora de Ingreso</span>
+                                <div id="datetimepicker2" class="input-append">
+                                    <input class="ico-fecha add-on" type="text" id="fecha_ini" name="fecha_ini" data-format="dd/MM/yyyy">
+                                </div>  
+                                <div id="datetimepicker3" class="input-append">  
+                                    <input class="ico-reloj add-on" type="text" id="hora_ini" name="hora_ini" data-format="hh:mm">
+                                </div>
+                            </div>
+                            <div class="left">
+                                <span class="fecha-txt">Fecha y hora de Salida</span>
+                                <div id="datetimepicker5" class="input-append">
+                                    <input class="ico-fecha add-on" type="text" id="fecha_fin" name="fecha_fin" data-format="dd/MM/yyyy">
+                                </div>  
+                                <div id="datetimepicker4" class="input-append">  
+                                    <input class="ico-reloj add-on" type="text" id="hora_fin" name="hora_fin" data-format="hh:mm">
+                                </div>
+                                <div class="clear"></div>
+                                <div class="tiempo-estimado">
+                                    <span>Tiempo estimado : </span><span class="tiempo-a-calcular">0 días, 0 horas, 0 minutos</span>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <span class="error" style="text-align: center;margin:0 0 4% 0;"></span>                                    
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div id="tipo-vehiculo">
+                            <span class="subtitulo">
+                                <img class="ico-titulo" src="img/vehiculo.png" alt="" title="">
+                                Tipo de vehículo									</span>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="tope_diario" id="radio1" checked="checked">
+                                        <div>                                    	
+                                            <span>Automóviles</span>
+                                        </div>
+                                    </li>                                           
+                                    <li>
+                                        <input type="radio" name="tope_diario" id="radio1">
+                                        <div>                                    	
+                                            <span>Buses y camiones</span>
+                                        </div>
+                                    </li>                                           
+                                </ul>
+                            </div>
+                            <div id="col-resultado">
+                                <div class="boton-simular">
+                                    <a class="btn-simular" href="javascript:;">Simular</a>	
+                                </div>
+                                <div class="monto-simulado">
+                                    <span>CLP $</span><span class="monto">--</span>
+                                </div>                                  
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>                            
+            </div>
+        </div> 
+    </body>
+</html>
