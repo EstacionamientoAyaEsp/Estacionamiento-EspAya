@@ -4,12 +4,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/reclamos.css" rel="stylesheet">
         <title>Reclamos y sugerencias</title>
     </head>
     <body>
-        <p><%= request.getAttribute("textoNombre")%> <%= request.getAttribute("textoApellido")%> tu <%= request.getAttribute("textoTipoMensaje")%> se envio con exito</p>
+        <%@include file="insert/NavvarFb.html" %>
+        <%@include file="insert/menulateralfb.html" %>
+        <p style="padding-left: 201px;"><%=request.getAttribute("textoNombre")%> <%= request.getAttribute("textoApellido")%> tu <%= request.getAttribute("textoTipoMensaje")%> se envio con exito</p>
         <br/>
-        <fieldset><legend>Detalle del envio</legend>
+        <fieldset style="padding-left: 201px;"><legend>Detalle del envio</legend>
             <ul>
                 <li>Correo Electronico: <%= request.getAttribute("textoEmail")%></li>
                 <li>Placa Patente: <%= request.getAttribute("textoPpu")%></li>
@@ -20,9 +24,8 @@
             </fieldset>	
 
         </fieldset>
-        <p align="center"><video src="/WebEstacionamiento/main.mp4" autoplay="autoplay" loop="loop" ></video></p>
         <br>
         <br>
-        <a href="/WebEstacionamiento/reclamos.jsp">Volver a la pagina principal</a>
+        <a href="/WebEstacionamiento/reclamos.jsp" style="padding-left: 201px;">Volver a la pagina principal</a>
     </body>
 </html>

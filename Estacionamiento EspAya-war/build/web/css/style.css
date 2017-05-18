@@ -44,6 +44,18 @@
 .tipo-estacionamiento li div span {
     display: block;
 }
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, 
+.col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+.col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, 
+.col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, 
+.col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 201px;
+}
 ul {
     list-style-type: none;
     overflow: hidden;
@@ -107,7 +119,7 @@ div.left .ico-reloj {
     margin: 0 0 0 2%;
 }
 div.left .tiempo-estimado {
-    margin: 2% 0 0 0;
+    margin: 7% 0 0 0;
 }
 div.left .tiempo-estimado span:first-child {
     color: #333333;
@@ -175,4 +187,32 @@ input, textarea, select, button, meter, progress {
 }
 div {
     display: block;
+}
+.boton-simular {
+    margin: 0 2% 0 0;
+    min-width: 95px;
+    width: 10%;
+}
+.boton-simular a.btn-simular {
+    background-color: #00999c;
+    color: #ffffff;
+    display: block;
+    font-family: RobotoBold;
+    font-size: 15px;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+}
+.monto-simulado {
+    background-color: #dde5eb;
+    margin: 0;
+    width: 60%;
+}
+.monto-simulado span {
+    color: #666666;
+    display: block;
+    float: left;
+    font-family: RobotoRegular;
+    font-size: 14px;
+    padding: 7px 0 7px 10px;
 }

@@ -7,13 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sugerencias y Reclamos</title>
         <!-- Bootstrap -->
-        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/reclamos.css" rel="stylesheet">
         <style type="text/css">
             i{color: red}
         </style>
     </head>
     <body>
-        <div class="panel panel-info">
+        <%@include file="insert/NavvarFb.html" %>
+        <%@include file="insert/menulateralfb.html" %>
+        <div class="panel panel-info" style="left: 220px">
             <div class="panel-heading">
                 <h3 class="panel-title">Reclamos</h3>
             </div>

@@ -8,13 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+       
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Estacionamiento Esp-Aya</title>
     </head>
     <body>
-        <%@include file="insert/NavVar.html" %>
+        <%@include file="insert/NavvarFb.html" %>
         <div>
-        <%@include file="insert/menuLateral.html" %>
+        <%@include file="insert/menulateralfb.html" %>
         </div>
+        <h1 style="text-align: center">Sitio Web En Desarrollo</h1>
     </body>
 </html>
