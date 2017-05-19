@@ -9,6 +9,7 @@
         <!--<link href="css/bootstrap.min.css" rel="stylesheet">*\  -->
         <link href="css/style.css" rel="stylesheet">
         <script src="js/dates.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
         <link href="css/fonts.css" rel="stylesheet">
     </head>
     <body>
@@ -50,15 +51,17 @@
                             </div>
                             <div style="clear:both;"></div>
                             <span class="error" style="text-align: center;margin:0 0 4% 0;"></span>                                    
+                        
                         </div>
                         <div style="clear:both;"></div>
                         
                             <div id="col-resultado">
                                 <div class="boton-simular">
-                                    <a class="btn-simular" href="javascript:;">Simular</a>	
-                                </div>
-                                <div class="tiempo-estimado">
-                                    <span>CLP $</span><span class="monto" id="monto">--</span>
+                                    <a class="btn-simular" href="javascript:;" onclick="calculaTiempo()+calculaValor()">Simular</a>
+                                    
+                                   </div>
+                                <div class="clp">
+                                    <h4 >CLP $</h4> <span class="monto" id="monto">--</span>
                                 </div>                                  
                             </div>
                         </div>
@@ -67,6 +70,10 @@
                 </div>                            
             </div>
         </div> 
+
+        
+        
+        
     </body>
 </html>
 

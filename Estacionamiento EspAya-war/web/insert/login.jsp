@@ -17,7 +17,7 @@
         <link href="../css/dashboard.css" rel="stylesheet">
         
         <script src="../js/ventana.js" type="text/javascript"></script>
-        <title>Iniciar Seción</title>
+        <title>Iniciar Sesión</title>
     </head>
     <body>
         <%@include file="NavvarFb.html" %>
