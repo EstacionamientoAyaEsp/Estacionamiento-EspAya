@@ -6,7 +6,7 @@
         <title>Calcular Estacionamiento</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<link href="css/bootstrap.min.css" rel="stylesheet">*\  -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <script src="js/dates.js" type="text/javascript"></script>
         <script src="js/funciones.js" type="text/javascript"></script>
@@ -15,6 +15,7 @@
     <body>
         <%@include file="insert/NavvarFb.html" %>
         <%@include file="insert/menulateralfb.html" %>
+        <form name="frm_cotiza" method="POST" action="boletaServlet">
         <div class="col-sm-8 col-md-8" >
             <div class="contColap xs-margin-top-30 xs-margin-bottom-30 contBlock">
                 <div class="ContItem" rol-item="item-1">
@@ -47,6 +48,7 @@
                                 <br>
                                 <div class="tiempo-estimado">
                                     <span>Tiempo estimado : </span><span class="tiempo-a-calcular" id="tiempo_estimado">0 días, 0 horas, 0 minutos</span>
+                                    
                                 </div>
                             </div>
                             <div style="clear:both;"></div>
@@ -58,20 +60,31 @@
                             <div id="col-resultado">
                                 <div class="boton-simular">
                                     <a class="btn-simular" href="javascript:;" onclick="calculaTiempo()+calculaValor()">Simular</a>
-                                    
+                                                                    
+                                    <br>
                                    </div>
-                                <div class="clp">
-                                    <h4 >CLP $</h4> <span class="monto" id="monto">--</span>
-                                </div>                                  
+                                <div class="monto-simulado">
+                                    <span>CLP $</span><span class="monto-simulado" id="monto">--</span>
+                                    
+                                </div>
                             </div>
                         </div>
                         <div style="clear:both;"></div>
+                        
+                                <div align="center">
+                                    <br>
+                                    <br>  
+                                    <button type="submit" class="btn btn-primary">Emitir Boleta</button>
+                                </div>
+                        
                     </div>
                 </div>                            
             </div>
         </div> 
 
+
         
+</form>        
         
         
     </body>
