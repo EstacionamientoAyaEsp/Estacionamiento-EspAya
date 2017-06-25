@@ -1,3 +1,4 @@
+
 function calculaTiempo (){
     fechaIni = document.getElementById("fecha_ini").value;
     fechaFin = document.getElementById("fecha_fin").value;
@@ -149,9 +150,67 @@ function horaActual (){
         
     var muestraHora=(hora+':'+minutos);
     
-    document.getElementById('horaTermino').value=muestraHora;
+    document.getElementById('hora-registro').value=muestraHora;
    
       
 }
+function horaServer(){
+    var horaServ= new Date();
+    var hora=horaServ.getHours();
+    return hora;
+}
 
+function minutoServer(){
+    var minutoServ= new Date();
+    var minutos=minutoServ.getMinutes();
+    return minutos;
+}
+
+function segundosServer(){
+    var segundosServ= new Date();
+    var segundos=segundosServ.getSeconds();
+    return segundos;
+}
+    
+function mueveReloj(){
+    
+    relojServlet = document.getElementById("hora_serv");
+    relojServer=(relojServer).split(":");
+  
+    var hora=relojServer[0];
+    var minutos=relojServer[1];
+    var segundos=relojServer[2];
+ 
+    segundos=segundos++;
+    if (segundos===60){
+        segundos=0;
+        minutos=minutos++;
+        if(minutos===60){
+            minutos=0;
+            hora=hora++;
+            if(hora===24){
+                hora=0;
+            }
+        }
+    }
+    
+    //var segundosCero= agregaCero(segundos);
+    //var minutosCero= agregaCero(minutos);
+    
+    var muestraHora=hora+':'+minutos+':'+segundos;
+        
+    document.getElementById('hora_serv').value=muestraHora;
+        
+        }
+        
+        function accion(){
+            setInterval(mueveReloj,1000);
+        }
+
+  function agregaCero (i){
+      if (i<10){
+          i="0"+1;
+      }
+      return i;
+      }
 

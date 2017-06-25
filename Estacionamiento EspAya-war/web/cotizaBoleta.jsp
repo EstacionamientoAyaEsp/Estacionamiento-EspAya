@@ -16,9 +16,10 @@
     <body>
         <%@include file="insert/NavvarFb.html" %>
         <%@include file="insert/menulateralfb.html" %>
+        <div style="align-content: center">
         <p style="padding-left: 201px;"></p>
         <br/>
-        <fieldset style="padding-left: 201px;"><legend>Detalle de Uso de Estacionamiento</legend>
+        <fieldset style="padding-left: 35%;"><legend>Detalle de Uso de Estacionamiento</legend>
             <ul>
                 <li>Fecha Entrada: <%= request.getAttribute("fechaInicio")%></li>
                 <li>Hora Entrada: <%= request.getAttribute("horaInicio")%></li>
@@ -27,14 +28,15 @@
                 </br>
                 <li>Tiempo de Estadia: <%= request.getAttribute("tiempoUso")%></li>
             </ul>
-            A pagar:
+            
             <fieldset>
-                $<%= request.getAttribute("aPagar")%> pesos.
+            Monto a cancelar: $ <%= request.getAttribute("aPagar")%> pesos.
             </fieldset>	
 
         </fieldset>
         <br>
         <br>
-        <a href="/Estacionamiento_EspAya-war/calcular.jsp" style="padding-left: 201px;">Volver a la pagina principal</a>
-    </body>
+        <a href="/Estacionamiento_EspAya-war/calcular.jsp" style="padding-left: 35%;">Volver a la pagina principal</a>
+    </div>
+        </body>
 </html>

@@ -4,9 +4,33 @@
         <servlet-name>boletaServlet</servlet-name>
         <servlet-class>SessionBean.boletaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>calcularServlet</servlet-name>
+        <servlet-class>SessionBean.calcularServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>horaServer</servlet-name>
+        <servlet-class>SessionBean.horaServer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registroVehiculos</servlet-name>
+        <servlet-class>SessionBean.registroVehiculos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>boletaServlet</servlet-name>
         <url-pattern>/boletaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>calcularServlet</servlet-name>
+        <url-pattern>/calcularServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>horaServer</servlet-name>
+        <url-pattern>/horaServer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registroVehiculos</servlet-name>
+        <url-pattern>/registroVehiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

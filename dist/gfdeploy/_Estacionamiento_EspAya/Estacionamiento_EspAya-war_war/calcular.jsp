@@ -74,7 +74,7 @@
                                 <div align="center">
                                     <br>
                                     <br>  
-                                    <button type="submit" class="btn btn-primary">Emitir Boleta</button>
+                                    <button type="submit" class="btn btn-primary">Emitir Presupuesto</button>
                                 </div>
                         
                     </div>

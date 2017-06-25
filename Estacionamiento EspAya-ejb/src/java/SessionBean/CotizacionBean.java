@@ -158,6 +158,8 @@ public class CotizacionBean implements CotizacionBeanLocal {
     int horas =(int) ((tiempoMinutos - dias*60*24)/60);
     int tMinutos= (int) (tiempoMinutos-(dias*60*24)-(horas*60));
     
+    
+    
     int valorDia = dias*15000;
     int valorHora = horas*1000;
     int valorMinuto=tMinutos;

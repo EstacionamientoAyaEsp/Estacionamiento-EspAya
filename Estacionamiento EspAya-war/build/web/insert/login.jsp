@@ -30,17 +30,15 @@
                     </div>
                     <div class="col-xs-12 col-md-10 col-sm-10 col-sm-offset-1">
                         <form class="form" action="" method="post" name="login_form" id="login_form">
-                            <input type="hidden" name="cm_target_action" value="www.latam.com/es_cl/">
+                            
                             <div class="form-group login">
-                                <label for="login" aria-hidden="true">Patente de vehiculo</label>
-                                <input name="login" type="text" placeholder="AAAA00 / AA0000" maxlength="6" id="login" class="form-control" aria-required="true" aria-invalid="false" aria-describedby="pLogin-error-block" aria-label="Escribe tu nombre de usuario o n&uacute;mero de socio.">
-                                <p class="error-block hidden text-left" id="pLogin-error-block"></p>
-                            </div>
+                                <label for="login" aria-hidden="true">Rut de Empleado</label>
+                                <input name="login" type="text" placeholder="Run sin puntos ni Digito Verificador" maxlength="8" id="login" class="form-control">
+                                </div>
                             <div class="form-group password">
                                 <label for="password" aria-hidden="true">Clave</label>
-                                <input name="password" type="password" id="password" class="form-control" aria-required="true" aria-invalid="false" aria-describedby="pPassword-error-block" aria-label="Escribe tu contrase&ntilde;a.">
-                                <p class="error-block hidden text-left" id="pPassword-error-block"></p>
-                            </div>
+                                <input name="password" type="password" id="password" class="form-control">
+                                </div>
                             <button id="btnEnter" name="enter" type="submit" class="btn-flat flat-large first-level btn-block" onclick="ventanaEmer()">
                                 <span>Ingresar</span>
                             </button>
