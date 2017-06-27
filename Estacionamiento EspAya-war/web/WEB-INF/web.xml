@@ -13,8 +13,16 @@
         <servlet-class>SessionBean.horaServer</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>registroVehiculos</servlet-name>
-        <servlet-class>SessionBean.registroVehiculos</servlet-class>
+        <servlet-name>ingresaVehiculo</servlet-name>
+        <servlet-class>controlVehiculos.ingresaVehiculo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>salidaVehiculo</servlet-name>
+        <servlet-class>controlVehiculos.salidaVehiculo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listadoVehiculos</servlet-name>
+        <servlet-class>controlVehiculos.listadoVehiculos</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>boletaServlet</servlet-name>
@@ -29,8 +37,16 @@
         <url-pattern>/horaServer</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>registroVehiculos</servlet-name>
-        <url-pattern>/registroVehiculos</url-pattern>
+        <servlet-name>ingresaVehiculo</servlet-name>
+        <url-pattern>/ingresaVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>salidaVehiculo</servlet-name>
+        <url-pattern>/salidaVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listadoVehiculos</servlet-name>
+        <url-pattern>/listadoVehiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

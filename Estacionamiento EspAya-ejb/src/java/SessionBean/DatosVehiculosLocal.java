@@ -5,17 +5,17 @@
  */
 package SessionBean;
 
-import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
+import javax.ejb.Local;
 
 /**
  *
  * @author Ikaro
  */
-@Stateless
-@LocalBean
-public class Datos {
-
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+@Local
+public interface DatosVehiculosLocal {
+    
+    public String obtenerHora ();
+    
+    public String obtenerFecha();
+            
 }

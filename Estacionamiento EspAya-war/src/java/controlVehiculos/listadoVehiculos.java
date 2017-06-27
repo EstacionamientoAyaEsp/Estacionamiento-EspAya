@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SessionBean;
+package controlVehiculos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ikaro
  */
-public class registroVehiculos extends HttpServlet {
+public class listadoVehiculos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +35,10 @@ public class registroVehiculos extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet registroVehiculos</title>");            
+            out.println("<title>Servlet listadoVehiculos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet registroVehiculos at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet listadoVehiculos at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

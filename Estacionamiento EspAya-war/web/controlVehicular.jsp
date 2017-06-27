@@ -14,38 +14,52 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <title>Control de Vehículos</title>
-
+        <link rel="icon" href="http://localhost:8080/Estacionamiento_EspAya-war/img/tipo-estacionamiento.png" sizes="32x32" />
+        <title>Calcular Estacionamiento</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/fonts.css" rel="stylesheet">
 
     </head>
 
         
     <body>
-        
-        <form name="datos" action="post">
+        <%@include file="insert/NavvarFb.html" %>
+        <%@include file="insert/menulateralfb.html" %>
+        <form action="post" style="text-align: center" action="ingresaVehiculo">
             <p>
+                <br>
+                <br>
             <label>Registro Placa Patente
                 <input type="text" id="Placa_Patente" name="Placa_Patente" placeholder="AAAA11" minlength="6" maxlength="6" required>
             </label>
             </p>
-            
-            <p>
-                <input type="submit" value="Salida">
-            </p>
 
             <p>
-                <input type="submit" value="Entrada">
+                <input type="submit" value="Entrada" >
+                    
             </p>
             
             <p>
-            <details open>
+                <input type="submit" value="Salida" onclick="form.action='salidaVehiculo';">
+            </p>
+            
+        </form>
+                <br>
+                <br>                
+                <p>
+                <form method="get" action="listadoVehiculos" style="text-align: center">
+                    <input type="submit" value="Registros">
+                </form>
+            </p>
+            
+            <p>
+            <details close style="text-align: center">
                 <summary>Registro de Vehículo</summary>
                 <ul id="registroVeh" type="Square"  > 
                 </ul>
             </details>
-                    
-            </p>
-            
-        </form>
     </body>    
     
 </html>
