@@ -13,12 +13,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import persistencia.Registro;
+import persistencia.RegistroFacadeLocal;
 
 /**
  *
  * @author Ikaro
  */
 public class ingresaVehiculo extends HttpServlet {
+
+    @EJB
+    private RegistroFacadeLocal registroFacade;
 
     @EJB
     private DatosVehiculosLocal datosVehiculos;
@@ -39,11 +44,21 @@ public class ingresaVehiculo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         
         String fechaIngreso = datosVehiculos.obtenerFecha();
         String horaEntrada = datosVehiculos.obtenerHora();
         
         String placaPatente = request.getParameter("Placa_Patente");
+        
+        Registro vehiculo = new Registro();
+        
+        vehiculo.setPpu(placaPatente);
+        vehiculo.setFechaEntrada(fechaIngreso);
+        vehiculo.setHoraEntrada(horaEntrada);
+        vehiculo.setRutPersonalIngreso("15556735-K");
+        
+        registroFacade.create(vehiculo);
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -54,9 +69,9 @@ public class ingresaVehiculo extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ingresaVehiculo at</h1>");
-            out.println("<h2>Placa Patente " + placaPatente + "</h2>");
-            out.println("<p>Fecha" + fechaIngreso+ "</p>");
-            out.println("<p>Fecha" + horaEntrada+ "</p>");
+            out.println("<h2>Placa Patente: " + placaPatente + "</h2>");
+            out.println("<p>Fecha: " + fechaIngreso+ "</p>");
+            out.println("<p>Hora: " + horaEntrada+ "</p>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -6,8 +6,6 @@
 package persistencia;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,14 +23,23 @@ public class Registro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String ppu;
-    private Date fechaEntrada;
-    private Time horaEntrada;
-    private Date fechaSalida = null;
-    private Time horaSalida = null;
+    private String fechaEntrada;
+    private String horaEntrada;
+    private String fechaSalida = null;
+    private String horaSalida = null;
     private boolean retirado = false;
     private String RutPersonalIngreso;
     private String RutPersonalSalida = null;
-    
+    private Integer montoCancelado = 0;
+
+    public Integer getMontoCancelado() {
+        return montoCancelado;
+    }
+
+    public void setMontoCancelado(Integer montoCancelado) {
+        this.montoCancelado = montoCancelado;
+    }
+       
 
     public Integer getId() {
         return id;
@@ -75,35 +82,35 @@ public class Registro implements Serializable {
         this.ppu = ppu;
     }
 
-    public Date getFechaEntrada() {
+    public String getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public void setFechaEntrada(Date fechaEntrada) {
+    public void setFechaEntrada(String fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public Time getHoraEntrada() {
+    public String getHoraEntrada() {
         return horaEntrada;
     }
 
-    public void setHoraEntrada(Time horaEntrada) {
+    public void setHoraEntrada(String horaEntrada) {
         this.horaEntrada = horaEntrada;
     }
 
-    public Date getFechaSalida() {
+    public String getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
+    public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
 
-    public Time getHoraSalida() {
+    public String getHoraSalida() {
         return horaSalida;
     }
 
-    public void setHoraSalida(Time horaSalida) {
+    public void setHoraSalida(String horaSalida) {
         this.horaSalida = horaSalida;
     }
 

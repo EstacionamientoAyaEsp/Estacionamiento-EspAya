@@ -1,3 +1,6 @@
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : controlVehicular
     Created on : 09-06-2017, 22:54:24
@@ -6,7 +9,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <head>
   
@@ -27,7 +30,7 @@
     <body>
         <%@include file="insert/NavvarFb.html" %>
         <%@include file="insert/menulateralfb.html" %>
-        <form action="post" style="text-align: center" action="ingresaVehiculo">
+        <form method="post" style="text-align: center" action="ingresaVehiculo">
             <p>
                 <br>
                 <br>
@@ -52,13 +55,25 @@
                 <form method="get" action="listadoVehiculos" style="text-align: center">
                     <input type="submit" value="Registros">
                 </form>
-            </p>
-            
+                </p>    
+     
+
             <p>
             <details close style="text-align: center">
                 <summary>Registro de Vehículo</summary>
-                <ul id="registroVeh" type="Square"  > 
-                </ul>
+                <table border="5" aling="center"> 
+                    <tr> 
+                        <td bgcolor="Skyblue"> <font color="white"> ID </font> </td>
+                    <th> PPU </td>
+                    <th> FECHA INGRESO </th>
+                    <th> HORA INGRESO </th>
+                    <th> FECHA SALIDA </th>
+                    <th> HORA SALIDA </th>
+                    <th> MONTO A CANCELAR </th>
+                    <th> ELIMINAR </th>
+                    </tr>
+
+                </table>
             </details>
     </body>    
     

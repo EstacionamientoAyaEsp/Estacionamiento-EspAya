@@ -28,5 +28,9 @@ public interface RegistroFacadeLocal {
     List<Registro> findRange(int[] range);
 
     int count();
+
+    List<Registro> listadoVehiculos(boolean b);
+
+    public int obtenerID(String ppu);
     
 }

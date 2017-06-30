@@ -45,17 +45,17 @@ public class agregarIngresosServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         // Capturamos los valores desde el formulario de captura \\
-        horaBean horaBn = new horaBean();
+        //horaBean horaBn = new horaBean();
         String ppu = request.getParameter("txt_ppu");
-        Date fechaEntrada=Date.from(Instant.now());
+        //Date fechaEntrada=Date.from(Instant.now());
         String nombre = request.getParameter("txt_nombre");
         
         // Crear objeto de la clase Registro \\
         Registro reg = new Registro();
         reg.setPpu(ppu);
-        reg.setFechaEntrada(fechaEntrada);
+       // reg.setFechaEntrada(fechaEntrada);
         //reg.setHoraEntrada(horaEntrada);
-        reg.setRutPersonalIngreso(nombre);
+       // reg.setRutPersonalIngreso(nombre);
         
         // Guardamos el objeto Registro en BD \\
         //registroFacade.create(reg);

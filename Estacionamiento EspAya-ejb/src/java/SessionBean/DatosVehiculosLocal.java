@@ -17,5 +17,9 @@ public interface DatosVehiculosLocal {
     public String obtenerHora ();
     
     public String obtenerFecha();
+
+    public int cotizaMontoServicio(String fechaIni, String horaIni, String fechaFin, String horaFin);
+
+    public String tiempoEstadia(String fechaIni, String horaIni, String fechaFin, String horaFin);
             
 }

@@ -7,16 +7,24 @@ package controlVehiculos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import persistencia.Registro;
+import persistencia.RegistroFacadeLocal;
 
 /**
  *
  * @author Ikaro
  */
 public class listadoVehiculos extends HttpServlet {
+
+    @EJB
+    private RegistroFacadeLocal registroFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,6 +38,15 @@ public class listadoVehiculos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        List <Registro> listaVehiculos = registroFacade.listadoVehiculos(false);
+        
+        
+        request.setAttribute("listaDeVehiculos", listaVehiculos);
+        
+        RequestDispatcher dp = request.getRequestDispatcher("controlVehicular.jsp");
+        dp.forward(request, response);
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -38,7 +55,31 @@ public class listadoVehiculos extends HttpServlet {
             out.println("<title>Servlet listadoVehiculos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet listadoVehiculos at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet listadoVehiculos at</h1>");
+            out.println("<table border='5' aling='center'>"); 
+            out.println("<tr>"); 
+            out.println("<td>ID</td>");
+            out.println("<th>PPU</td>");
+            out.println("<th>FECHA INGRESO</th>");
+            out.println("<th> HORA INGRESO </th>");
+            out.println("<th> FECHA SALIDA </th>");
+            out.println("<th> HORA SALIDA </th>");
+            out.println("<th> MONTO A CANCELAR </th>");
+            out.println("<th> ELIMINAR </th>");
+            out.println("</tr>");
+            
+            out.println("<tr>");
+            for (Registro r: listaVehiculos){
+            out.println("<td>"+r.getId()+"</th>");
+            out.println("<td>"+r.getFechaEntrada()+"</td>");
+            out.println("<td>"+r.getHoraEntrada()+"</td>");
+            out.println("<td>"+r.getFechaSalida()+"</td>");
+            out.println("<td>"+r.getHoraSalida()+"</td>");
+            out.println("<td>"+r.getMontoCancelado()+"</td>");
+            out.println("<td> <a href='#'> Eliminar </a> </td>");
+            out.println("</tr>");}
+            out.println("</table>");
+            
             out.println("</body>");
             out.println("</html>");
         }
