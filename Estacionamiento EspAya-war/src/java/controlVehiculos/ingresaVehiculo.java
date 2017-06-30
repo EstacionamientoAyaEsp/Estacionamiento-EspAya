@@ -72,6 +72,9 @@ public class ingresaVehiculo extends HttpServlet {
             out.println("<h2>Placa Patente: " + placaPatente + "</h2>");
             out.println("<p>Fecha: " + fechaIngreso+ "</p>");
             out.println("<p>Hora: " + horaEntrada+ "</p>");
+            out.println("<br>");
+            out.println("<br>");
+            out.println("<br> <a href='controlVehicular.jsp'> Volver a control vehicular </a>");
             out.println("</body>");
             out.println("</html>");
         }

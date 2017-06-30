@@ -24,6 +24,10 @@
         <servlet-name>listadoVehiculos</servlet-name>
         <servlet-class>controlVehiculos.listadoVehiculos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliminarRegistro</servlet-name>
+        <servlet-class>controlVehiculos.eliminarRegistro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>boletaServlet</servlet-name>
         <url-pattern>/boletaServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>listadoVehiculos</servlet-name>
         <url-pattern>/listadoVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarRegistro</servlet-name>
+        <url-pattern>/eliminarRegistro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

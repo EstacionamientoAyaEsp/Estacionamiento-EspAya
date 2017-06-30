@@ -33,7 +33,7 @@ public class RegistroFacade extends AbstractFacade<Registro> implements Registro
     @Override
     public List<Registro> listadoVehiculos (boolean estado){
         Query q; // Objeto Query
-        q =getEntityManager().createQuery("select a from Registro a where a.retirado="+estado+" order by id desc");
+        q =getEntityManager().createQuery("select a from Registro a where a.retirado="+estado+" order by a.id desc");
         
         //Se busca en la clase no en la tabla
         List<Registro> listaRegistros = q.getResultList();

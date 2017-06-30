@@ -49,7 +49,7 @@ public class DatosVehiculos implements DatosVehiculosLocal {
         return horaServ;
                
 }
-  public int cotizaMontoServicio(String fechaIni, String horaIni, String fechaFin, String horaFin) {
+    public int cotizaMontoServicio(String fechaIni, String horaIni, String fechaFin, String horaFin) {
     String inicio= fechaIni+" "+horaIni;
     String fin= fechaFin+" "+horaFin;
     
@@ -88,7 +88,7 @@ public class DatosVehiculos implements DatosVehiculosLocal {
     return total;
     }
   
-      public String tiempoEstadia(String fechaIni, String horaIni, String fechaFin, String horaFin) {
+    public String tiempoEstadia(String fechaIni, String horaIni, String fechaFin, String horaFin) {
         
     String inicio= fechaIni+" "+horaIni;
     String fin= fechaFin+" "+horaFin;
@@ -154,4 +154,32 @@ public class DatosVehiculos implements DatosVehiculosLocal {
     
     }
   
+    public String borrarNull (String x){
+        if (x==null){
+            x="";
+        }
+        
+        return x;
+    }
+    
+    public String eliminaEdita (boolean e){
+        String texto="";
+        if(e==false){
+            texto="Eliminar Registro";
+        }else {
+            texto="Modificar Salida";
+        }
+        return texto;
+    }
+    
+    public String borrarCero (int e){
+        String valor="";
+        if(e==0){
+            valor="-";
+        }else {
+            valor=String.valueOf(e);
+        }
+        return valor;
+    }
+    
 }

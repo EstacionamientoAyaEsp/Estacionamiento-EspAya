@@ -5,10 +5,8 @@
  */
 package controlVehiculos;
 
-import SessionBean.DatosVehiculosLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +19,10 @@ import persistencia.RegistroFacadeLocal;
  *
  * @author Ikaro
  */
-public class salidaVehiculo extends HttpServlet {
+public class eliminarRegistro extends HttpServlet {
 
     @EJB
     private RegistroFacadeLocal registroFacade;
-
-    @EJB
-    private DatosVehiculosLocal datosVehiculos;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,53 +38,38 @@ public class salidaVehiculo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         
-        String fechaSalida = datosVehiculos.obtenerFecha();
-        String horaSalida = datosVehiculos.obtenerHora();
-        String placaPatente = request.getParameter("Placa_Patente");
-        
-        int idRegistro = registroFacade.obtenerID(placaPatente);
+        Boolean estado = Boolean.valueOf(request.getParameter("estado"));
+        int idRegistro= Integer.parseInt(request.getParameter("idV"));
         
         Registro vehiculoBuscado = registroFacade.find(idRegistro);
         
-        
-        String fechaEnt = vehiculoBuscado.getFechaEntrada();
-        String horaEnt = vehiculoBuscado.getHoraEntrada();
-        
-        int monto = datosVehiculos.cotizaMontoServicio(fechaEnt, horaEnt, fechaSalida, horaSalida);
-        String tiempoEstadia = datosVehiculos.tiempoEstadia(fechaEnt, horaEnt, fechaSalida, horaSalida);
-        
-        vehiculoBuscado.setFechaSalida(fechaSalida);
-        vehiculoBuscado.setHoraSalida(horaSalida);
-        vehiculoBuscado.setRetirado(true);
-        vehiculoBuscado.setRutPersonalSalida("15556735-k");
-        vehiculoBuscado.setMontoCancelado(monto);
-        
-        try{
-        registroFacade.edit(vehiculoBuscado);
-        } catch (Exception e){
-            out.println("El vehículo con la PPU "+placaPatente+" no se encuentra registrado en el sistema.");
-        }
+ 
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet salidaVehiculo</title>");            
+            out.println("<title>Servlet eliminarRegistro</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet salidaVehiculo at </h1>");
-            out.println("<h2>Placa Patente " + placaPatente + "</h2>");
-            out.println("<p>fecha ent" + fechaEnt+ "</p>");
-            out.println("<p>hora ent" + horaEnt+ "</p>");
-            out.println("<p>monto" + monto+ "</p>");
-            out.println("<p>Fecha sal" + fechaSalida+ "</p>");
-            out.println("<p>hora sal " + horaSalida+ "</p>");
-            out.println("<p>id" + idRegistro+ "</p>");
-            out.println("<p>Tiempo Estadia" + tiempoEstadia+ "</p>");
+            out.println("<h1>Servlet eliminarRegistro </h1>");
+                   if (estado == false){
+            registroFacade.remove(vehiculoBuscado);
+            out.println("<h2> Ha sido eliminado la entrada del vehículo PPU: "+vehiculoBuscado.getPpu()+"</h2>");
+        }else{
+            vehiculoBuscado.setFechaSalida(null);
+            vehiculoBuscado.setHoraSalida(null);
+            vehiculoBuscado.setRutPersonalSalida(null);
+            vehiculoBuscado.setMontoCancelado(0);
+            vehiculoBuscado.setRetirado(false);
+            registroFacade.edit(vehiculoBuscado);
+            out.println("<h2> Ha sido cancelada la salida del vehículo PPU: "+vehiculoBuscado.getPpu()+"</h2>");
+            out.println("<h3> Para registra la salida correspondiente utilice la página de Control Vehicular </h3>");
+        }
             out.println("<br>");
             out.println("<br>");
-            out.println("<br> <a href='controlVehicular.jsp'> Volver a control vehicular </a>");
+            out.println("<br> <a href='listadoVehiculos'> Volver al Listado de Vehiculos</a>");
             out.println("</body>");
             out.println("</html>");
         }

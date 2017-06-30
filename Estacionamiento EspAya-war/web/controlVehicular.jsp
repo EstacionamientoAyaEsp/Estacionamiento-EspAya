@@ -56,25 +56,7 @@
                     <input type="submit" value="Registros">
                 </form>
                 </p>    
-     
 
-            <p>
-            <details close style="text-align: center">
-                <summary>Registro de Vehículo</summary>
-                <table border="5" aling="center"> 
-                    <tr> 
-                        <td bgcolor="Skyblue"> <font color="white"> ID </font> </td>
-                    <th> PPU </td>
-                    <th> FECHA INGRESO </th>
-                    <th> HORA INGRESO </th>
-                    <th> FECHA SALIDA </th>
-                    <th> HORA SALIDA </th>
-                    <th> MONTO A CANCELAR </th>
-                    <th> ELIMINAR </th>
-                    </tr>
-
-                </table>
-            </details>
     </body>    
     
 </html>

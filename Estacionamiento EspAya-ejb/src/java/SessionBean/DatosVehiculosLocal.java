@@ -21,5 +21,11 @@ public interface DatosVehiculosLocal {
     public int cotizaMontoServicio(String fechaIni, String horaIni, String fechaFin, String horaFin);
 
     public String tiempoEstadia(String fechaIni, String horaIni, String fechaFin, String horaFin);
+
+    public String borrarNull(String x);
+
+    public String eliminaEdita(boolean e);
+
+    public String borrarCero(int e);
             
 }

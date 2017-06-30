@@ -5,6 +5,7 @@
  */
 package controlVehiculos;
 
+import SessionBean.DatosVehiculosLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -24,6 +25,9 @@ import persistencia.RegistroFacadeLocal;
 public class listadoVehiculos extends HttpServlet {
 
     @EJB
+    private DatosVehiculosLocal datosVehiculos;
+
+    @EJB
     private RegistroFacadeLocal registroFacade;
 
     /**
@@ -38,14 +42,16 @@ public class listadoVehiculos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         
-        List <Registro> listaVehiculos = registroFacade.listadoVehiculos(false);
+        List <Registro> listaVehiculos = registroFacade.findAll();
+        
         
         
         request.setAttribute("listaDeVehiculos", listaVehiculos);
         
-        RequestDispatcher dp = request.getRequestDispatcher("controlVehicular.jsp");
-        dp.forward(request, response);
+        //RequestDispatcher dp = request.getRequestDispatcher("controlVehicular.jsp");
+        //dp.forward(request, response);
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -71,15 +77,18 @@ public class listadoVehiculos extends HttpServlet {
             out.println("<tr>");
             for (Registro r: listaVehiculos){
             out.println("<td>"+r.getId()+"</th>");
+            out.println("<td>"+r.getPpu()+"</th>");
             out.println("<td>"+r.getFechaEntrada()+"</td>");
             out.println("<td>"+r.getHoraEntrada()+"</td>");
-            out.println("<td>"+r.getFechaSalida()+"</td>");
-            out.println("<td>"+r.getHoraSalida()+"</td>");
-            out.println("<td>"+r.getMontoCancelado()+"</td>");
-            out.println("<td> <a href='#'> Eliminar </a> </td>");
+            out.println("<td>"+datosVehiculos.borrarNull(r.getFechaSalida())+"</td>");
+            out.println("<td>"+datosVehiculos.borrarNull(r.getHoraSalida())+"</td>");
+            out.println("<td>"+datosVehiculos.borrarCero(r.getMontoCancelado())+"</td>");
+            out.println("<td> <a href='eliminarRegistro?idV="+r.getId()+"&estado="+r.isRetirado()+"'> "+datosVehiculos.eliminaEdita(r.isRetirado())+" </a> </td>");
             out.println("</tr>");}
             out.println("</table>");
-            
+            out.println("</br>");
+            out.println("</br>");
+            out.println("</br> <a href='controlVehicular.jsp'> Volver a control vehicular </a>");
             out.println("</body>");
             out.println("</html>");
         }
