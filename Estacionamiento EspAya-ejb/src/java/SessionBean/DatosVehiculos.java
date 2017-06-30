@@ -93,7 +93,7 @@ public class DatosVehiculos implements DatosVehiculosLocal {
     String inicio= fechaIni+" "+horaIni;
     String fin= fechaFin+" "+horaFin;
     
-    SimpleDateFormat ini = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat ini = new SimpleDateFormat ("d-M-yyyy H:m:s");
     
     
     Date d1=null;
@@ -180,6 +180,40 @@ public class DatosVehiculos implements DatosVehiculosLocal {
             valor=String.valueOf(e);
         }
         return valor;
+    }
+    
+    public boolean realizaCambio (String fechaAccion, String horaAccion, String fechaSistema, String horaSistema){
+        boolean modifica = true;
+        
+        String inicio= fechaAccion+" "+horaAccion;
+        String fin= fechaSistema+" "+horaSistema;
+    
+    SimpleDateFormat ini = new SimpleDateFormat ("d-M-yyyy H:m:s");
+    
+    
+        Date d1=null;
+        Date d2=null;
+
+        try {
+            d1=ini.parse(inicio);
+            d2=ini.parse(fin);
+        } catch (ParseException ex) {
+         
+        }
+    
+        long minutos=d2.getTime() - d1.getTime();
+    
+        long tiempoMinutos=minutos/(1000*60);
+        
+        int dias= (int)((tiempoMinutos/60)/24);
+        int horas =(int) ((tiempoMinutos - dias*60*24)/60);
+        minutos= (int) (tiempoMinutos-(dias*60*24)-(horas*60));
+        
+        if (dias>1 || horas>1 || minutos>5){
+            modifica=false;
+        }
+        
+        return modifica;
     }
     
 }

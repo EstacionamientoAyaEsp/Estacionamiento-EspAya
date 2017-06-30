@@ -27,5 +27,7 @@ public interface DatosVehiculosLocal {
     public String eliminaEdita(boolean e);
 
     public String borrarCero(int e);
+
+    public boolean realizaCambio(String fechaAccion, String horaAccion, String fechaSistema, String horaSistema);
             
 }

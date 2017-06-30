@@ -51,7 +51,6 @@ public class salidaVehiculo extends HttpServlet {
         
         Registro vehiculoBuscado = registroFacade.find(idRegistro);
         
-        
         String fechaEnt = vehiculoBuscado.getFechaEntrada();
         String horaEnt = vehiculoBuscado.getHoraEntrada();
         
