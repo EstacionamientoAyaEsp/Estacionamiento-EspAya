@@ -30,8 +30,7 @@ public class RegistroFacade extends AbstractFacade<Registro> implements Registro
         super(Registro.class);
     }
     
-    @Override
-    public List<Registro> listadoVehiculos (boolean estado){
+    public List<Registro> listadoVehiculosEntrado (boolean estado){
         Query q; // Objeto Query
         q =getEntityManager().createQuery("select a from Registro a where a.retirado="+estado+" order by a.id desc");
         
@@ -45,10 +44,21 @@ public class RegistroFacade extends AbstractFacade<Registro> implements Registro
         Query q; // Objeto Query
         q =getEntityManager().createQuery("select a.id from Registro a where a.retirado=0 and a.ppu='"+ppu+"'");  
         
-        int ident = (int) q.getSingleResult();
+        int ident = -1;
+        try{
+            ident = (int) q.getSingleResult();
+        }catch(Exception e){      
+        }
+        return ident;        
+    }
+    public List<Registro> listadoVehiculosInverso (){
+        Query q; // Objeto Query
+        q =getEntityManager().createQuery("select a from Registro a order by a.id desc");
         
-        return ident;
-        
+        //Se busca en la clase no en la tabla
+        List<Registro> listaRegistros = q.getResultList();
+        // Asigna resultado de la consulta a la 
+        return listaRegistros;
     }
     
     

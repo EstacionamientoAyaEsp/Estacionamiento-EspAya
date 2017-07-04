@@ -10,7 +10,6 @@
     </head>
     <body>
         <%@include file="insert/NavvarFb.html" %>
-        <%@include file="insert/menulateralfb.html" %>
         <p style="padding-left: 201px;"><%=request.getAttribute("textoNombre")%> <%= request.getAttribute("textoApellido")%> tu <%= request.getAttribute("textoTipoMensaje")%> se envio con exito</p>
         <br/>
         <fieldset style="padding-left: 201px;"><legend>Detalle del envio</legend>

@@ -29,8 +29,10 @@ public interface RegistroFacadeLocal {
 
     int count();
 
-    List<Registro> listadoVehiculos(boolean b);
-
     public int obtenerID(String ppu);
+
+    public List<Registro> listadoVehiculosEntrado(boolean estado);
+
+    public List<Registro> listadoVehiculosInverso();
     
 }

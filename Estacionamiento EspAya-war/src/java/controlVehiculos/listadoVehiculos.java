@@ -44,8 +44,7 @@ public class listadoVehiculos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         
-        List <Registro> listaVehiculos = registroFacade.findAll();
-        
+        List <Registro> listaVehiculos = registroFacade.listadoVehiculosEntrado(false);
         
         
         request.setAttribute("listaDeVehiculos", listaVehiculos);
@@ -58,13 +57,14 @@ public class listadoVehiculos extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet listadoVehiculos</title>");            
+            out.println("<title>Servlet listadoVehiculos</title>"); 
+            out.println("<link href=\"css/semantic.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet listadoVehiculos at</h1>");
-            out.println("<table border='5' aling='center'>"); 
+            out.println("<div class=\"ui center aligned segment\"><table class=\"ui teal celled table\" aling='center'>"); 
+            out.println("<thead>"); 
             out.println("<tr>"); 
-            out.println("<td>ID</td>");
+            out.println("<th>ID</td>");
             out.println("<th>PPU</td>");
             out.println("<th>FECHA INGRESO</th>");
             out.println("<th> HORA INGRESO </th>");
@@ -73,7 +73,8 @@ public class listadoVehiculos extends HttpServlet {
             out.println("<th> MONTO A CANCELAR </th>");
             out.println("<th> ELIMINAR </th>");
             out.println("</tr>");
-            
+            out.println("</thead>"); 
+            out.println("<tbody>"); 
             out.println("<tr>");
             for (Registro r: listaVehiculos){
             out.println("<td>"+r.getId()+"</th>");
@@ -83,12 +84,12 @@ public class listadoVehiculos extends HttpServlet {
             out.println("<td>"+datosVehiculos.borrarNull(r.getFechaSalida())+"</td>");
             out.println("<td>"+datosVehiculos.borrarNull(r.getHoraSalida())+"</td>");
             out.println("<td>"+datosVehiculos.borrarCero(r.getMontoCancelado())+"</td>");
-            out.println("<td> <a href='eliminarRegistro?idV="+r.getId()+"&estado="+r.isRetirado()+"'> "+datosVehiculos.eliminaEdita(r.isRetirado())+" </a> </td>");
+            out.println("<td> <a class=\"ui teal small  button\" href='eliminarRegistro?idV="+r.getId()+"&estado="+r.isRetirado()+"'> "+datosVehiculos.eliminaEdita(r.isRetirado())+" </a> </td>");
             out.println("</tr>");}
             out.println("</table>");
             out.println("</br>");
             out.println("</br>");
-            out.println("</br> <a href='controlVehicular.jsp'> Volver a control vehicular </a>");
+            out.println("<a href='controlVehicular.jsp' class=\"ui teal small  button\"> Volver a control vehicular </a></div>");
             out.println("</body>");
             out.println("</html>");
         }

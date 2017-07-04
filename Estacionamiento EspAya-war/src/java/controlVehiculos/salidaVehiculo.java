@@ -42,59 +42,80 @@ public class salidaVehiculo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        
+        Registro vehiculoBuscado = new Registro();
         String fechaSalida = datosVehiculos.obtenerFecha();
         String horaSalida = datosVehiculos.obtenerHora();
         String placaPatente = request.getParameter("Placa_Patente");
-        
+
         int idRegistro = registroFacade.obtenerID(placaPatente);
-        
-        Registro vehiculoBuscado = registroFacade.find(idRegistro);
-        
-        String fechaEnt = vehiculoBuscado.getFechaEntrada();
-        String horaEnt = vehiculoBuscado.getHoraEntrada();
-        
-        int monto = datosVehiculos.cotizaMontoServicio(fechaEnt, horaEnt, fechaSalida, horaSalida);
-        String tiempoEstadia = datosVehiculos.tiempoEstadia(fechaEnt, horaEnt, fechaSalida, horaSalida);
-        
-        vehiculoBuscado.setFechaSalida(fechaSalida);
-        vehiculoBuscado.setHoraSalida(horaSalida);
-        vehiculoBuscado.setRetirado(true);
-        vehiculoBuscado.setRutPersonalSalida("15556735-k");
-        vehiculoBuscado.setMontoCancelado(monto);
-        
-        try{
-        registroFacade.edit(vehiculoBuscado);
-        } catch (Exception e){
-            out.println("El vehículo con la PPU "+placaPatente+" no se encuentra registrado en el sistema.");
-        }
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet salidaVehiculo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet salidaVehiculo at </h1>");
-            out.println("<h2>Placa Patente " + placaPatente + "</h2>");
-            out.println("<p>fecha ent" + fechaEnt+ "</p>");
-            out.println("<p>hora ent" + horaEnt+ "</p>");
-            out.println("<p>monto" + monto+ "</p>");
-            out.println("<p>Fecha sal" + fechaSalida+ "</p>");
-            out.println("<p>hora sal " + horaSalida+ "</p>");
-            out.println("<p>id" + idRegistro+ "</p>");
-            out.println("<p>Tiempo Estadia" + tiempoEstadia+ "</p>");
-            out.println("<br>");
-            out.println("<br>");
-            out.println("<br> <a href='controlVehicular.jsp'> Volver a control vehicular </a>");
-            out.println("</body>");
-            out.println("</html>");
+
+        if (idRegistro != -1) {
+            vehiculoBuscado = registroFacade.find(idRegistro);
+
+            String fechaEnt = vehiculoBuscado.getFechaEntrada();
+            String horaEnt = vehiculoBuscado.getHoraEntrada();
+
+            int monto = datosVehiculos.cotizaMontoServicio(fechaEnt, horaEnt, fechaSalida, horaSalida);
+            String tiempoEstadia = datosVehiculos.tiempoEstadia(fechaEnt, horaEnt, fechaSalida, horaSalida);
+
+            vehiculoBuscado.setFechaSalida(fechaSalida);
+            vehiculoBuscado.setHoraSalida(horaSalida);
+            vehiculoBuscado.setRetirado(true);
+            vehiculoBuscado.setRutPersonalSalida("15556735-k");
+            vehiculoBuscado.setMontoCancelado(monto);
+            registroFacade.edit(vehiculoBuscado);
+
+            try (PrintWriter out = response.getWriter()) {
+                /* TODO output your page here. You may use following sample code. */
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<meta http-equiv=\"Refresh\" content=\"20;url=http://localhost:8080/Estacionamiento_EspAya-war/controlVehicular.jsp\">");
+                out.println("<link href=\"css/semantic.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<title>Servlet salidaVehiculo</title>");
+                out.println("</head>");
+                out.println("<body>"); 
+                out.println("<div class=\"ui center aligned segment\">");
+                out.println("<h1>Salida Exitosa</h1>");
+                out.println("<h2>Placa Patente :" + placaPatente + "</h2>");
+                out.println("<p>fecha entrada :" + fechaEnt + "</p>");
+                out.println("<p>hora entrada :" + horaEnt + "</p>");
+                out.println("<p>Fecha salida :" + fechaSalida + "</p>");
+                out.println("<p>hora salida :" + horaSalida + "</p>");
+                out.println("<h5>Tiempo Estadia" + tiempoEstadia + "</h5>");
+                out.println("<h3>Monto a cancelar $" + monto + "</h3>");
+                out.println("<br>");
+                out.println("<br>");
+                out.println("<a href='controlVehicular.jsp' class=\"ui massive teal button\"> Volver a control vehicular </a>");
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+        } else {
+            try (PrintWriter out = response.getWriter()) {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<meta http-equiv=\"Refresh\" content=\"5;url=http://localhost:8080/Estacionamiento_EspAya-war/controlVehicular.jsp\">");
+                out.println("<link href=\"css/semantic.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+                out.println("<title>Servlet salidaVehiculo</title>");
+                out.println("</head>");
+                out.println("<body>");
+                
+                out.println("<div class=\"ui center aligned segment\">");
+                out.println("<h1>Salida Fallida</h1>");
+                out.println("<h1>El vehículo con la PPU " + placaPatente + " no se encuentra registrado en el sistema.</h1>");
+                out.println("<br>");
+                out.println("<br>");
+                out.println("<a href='controlVehicular.jsp' class=\"ui massive teal button\"> Volver a control vehicular </a>");
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

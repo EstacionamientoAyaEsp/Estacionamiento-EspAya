@@ -54,13 +54,16 @@ function calculaTiempo (){
     }
     if (minutos<1){
         numMinutos="";
-    }  
+    }
+    var tiempo = numDias+" "+numHoras+" "+numMinutos;
             
-    document.getElementById('tiempo_estimado').innerHTML =numDias+" "+numHoras+" "+numMinutos;
+    document.getElementById('tiempo_estimado').innerHTML =tiempo;
+    return tiempo;
     
 }
 
 function calculaValor (){
+    calculaTiempo();
     fechaIni = document.getElementById("fecha_ini").value;
     fechaFin = document.getElementById("fecha_fin").value;
     
@@ -87,15 +90,8 @@ function calculaValor (){
         
     var valorDia = dias*15000;
     var valorHora = horas*1000;
-    var ValorMinuto;
+    var valorMinuto = minutos*15;
     //var chkBox=document.getElementById("enLinea").checked;
-    
-    if (minutos<31){
-        valorMinuto=500;
-    }else{
-        valorMinuto=minutos*16;
-    }
-
     var total= valorDia+valorHora+valorMinuto;
     
     /*if (chkBox === true){

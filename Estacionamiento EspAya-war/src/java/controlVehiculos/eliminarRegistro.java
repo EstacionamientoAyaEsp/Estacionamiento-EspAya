@@ -56,14 +56,15 @@ public class eliminarRegistro extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet eliminarRegistro</title>");
+            out.println("<link href=\"css/semantic.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet eliminarRegistro </h1>");
+            out.println("<div class=\"ui center aligned segment\">");
             if (estado == false) {
 
                 String FechaEnt = vehiculoBuscado.getFechaEntrada();
                 String horaEnt = vehiculoBuscado.getHoraEntrada();
-
+                
                 if (datosVehiculos.realizaCambio(FechaEnt, horaEnt, fechaSistema, horaSistema)) {
                     registroFacade.remove(vehiculoBuscado);
                     out.println("<h2> Ha sido eliminado la entrada del vehículo PPU: " + vehiculoBuscado.getPpu() + "</h2>");
@@ -90,7 +91,7 @@ public class eliminarRegistro extends HttpServlet {
             }
             out.println("<br>");
             out.println("<br>");
-            out.println("<br> <a href='listadoVehiculos'> Volver al Listado de Vehiculos</a>");
+            out.println("<a href='listadoVehiculos' class=\"ui teal small  button\"> Volver al Listado de Vehiculos</a>");
             out.println("</body>");
             out.println("</html>");
         }

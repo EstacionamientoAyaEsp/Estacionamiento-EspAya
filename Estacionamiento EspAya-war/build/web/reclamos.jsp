@@ -15,8 +15,7 @@
     </head>
     <body>
         <%@include file="insert/NavvarFb.html" %>
-        <%@include file="insert/menulateralfb.html" %>
-        <div class="panel panel-info" style="left: 220px">
+        <div class="panel panel-info" >
             <div class="panel-heading">
                 <h3 class="panel-title">Reclamos</h3>
             </div>

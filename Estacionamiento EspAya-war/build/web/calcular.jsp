@@ -7,86 +7,83 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/semantic.min.css" rel="stylesheet" type="text/css"/>
         <script src="js/dates.js" type="text/javascript"></script>
         <script src="js/funciones.js" type="text/javascript"></script>
-        <link href="css/fonts.css" rel="stylesheet">
+
     </head>
     <body>
         <%@include file="insert/NavvarFb.html" %>
-        <%@include file="insert/menulateralfb.html" %>
-        <form name="frm_cotiza" method="POST" action="boletaServlet">
-        <div class="col-sm-8 col-md-8" >
-            <div class="contColap xs-margin-top-30 xs-margin-bottom-30 contBlock">
-                <div class="ContItem" rol-item="item-1">
-                    <div id="simulador">
-                        <div id="titulo">
-                            <span class="barra">¿Quieres simular tu estacionamiento?</span>		
-                        </div>
-                        <div id="tiempo-aproximado">
-                            <span class="subtitulo">
-                                <img class="ico-titulo" src="img/calendario.png" alt="" title="">
-                                Tiempo aproximado de estadía									</span>
-                            <div class="left">
-                                <span class="fecha-txt">Fecha y hora de Ingreso</span>
-                                <div id="datetimepicker2" class="input-append">
-                                    <input class="ico-fecha add-on" type="date"  id="fecha_ini" name="fecha_ini" data-format="dd/MM/yyyy">
-                                </div>  
-                                <div id="datetimepicker3" class="input-append">  
-                                    <input class="ico-reloj add-on" type="time" id="hora_ini" name="hora_ini" data-format="hh:mm">
-                                </div>
-                            </div>
-                            <div class="left">
-                                <span class="fecha-txt">Fecha y hora de Salida</span>
-                                <div id="datetimepicker5" class="input-append">
-                                    <input class="ico-fecha add-on" type="date" id="fecha_fin" name="fecha_fin" data-format="dd/MM/yyyy">
-                                </div>  
-                                <div id="datetimepicker4" class="input-append">  
-                                    <input class="ico-reloj add-on" type="time" id="hora_fin" name="hora_fin" data-format="hh:mm">
-                                </div>
-                                <div class="clear"></div>
-                                <br>
-                                <div class="tiempo-estimado">
-                                    <span>Tiempo estimado : </span><span class="tiempo-a-calcular" id="tiempo_estimado">0 días, 0 horas, 0 minutos</span>
-                                    
-                                </div>
-                            </div>
-                            <div style="clear:both;"></div>
-                            <span class="error" style="text-align: center;margin:0 0 4% 0;"></span>                                    
-                        
-                        </div>
-                        <div style="clear:both;"></div>
-                        
-                            <div id="col-resultado">
-                                <div class="boton-simular">
-                                    <a class="btn-simular" href="javascript:;" onclick="calculaTiempo()+calculaValor()">Simular</a>
-                                                                    
-                                    <br>
-                                   </div>
-                                <div class="monto-simulado">
-                                    <span>CLP $</span><span class="monto-simulado" id="monto">--</span>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear:both;"></div>
-                        
-                                <div align="center">
-                                    <br>
-                                    <br>  
-                                    <button type="submit" class="btn btn-primary">Emitir Presupuesto</button>
-                                </div>
-                        
+        <form class="ui form massive" name="frm_cotiza" method="POST" action="boletaServlet">
+            <div class="massive green ui secondary segment">
+                <div>
+                    <div class="ui teal massive inverted segment center aligned">
+                        <div class="ui header">¿Quieres simular tu estacionamiento?</div>		
                     </div>
-                </div>                            
-            </div>
-        </div> 
+                    <div class="massive teal ui secondary segment">
+                        <span >
+                            <img src="img/calendario.png" alt="" title="">
+                            Tiempo aproximado de estadía
+                        </span>
+                        <div class="two fields">
+                            <span>Fecha y hora de Ingreso</span>
+                            <div class="ui corner labeled input field">
+                                <input  type="date"  id="fecha_ini" name="fecha_ini" data-format="dd/MM/yyyy" required="">
+                                <div class="ui teal corner label">
+                                    <i class="asterisk icon"></i>
+                                </div>
+                            </div>  
+                            <div class="ui corner labeled input field">  
+                                <input type="time" id="hora_ini" name="hora_ini" data-format="hh:mm" required="">
+                                <div class="ui teal corner label">
+                                    <i class="asterisk icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="two fields">
+                            <span>Fecha y hora de Salida</span>
+                            <div class="ui corner labeled input field">
+                                <input type="date" id="fecha_fin" name="fecha_fin" data-format="dd/MM/yyyy" required="">
+                                <div class="ui teal corner label">
+                                    <i class="asterisk icon"></i>
+                                </div>
+                            </div>  
+                            <div class="ui corner labeled input field">  
+                                <input type="time" id="hora_fin" name="hora_fin" data-format="hh:mm">
+                                <div class="ui teal corner label">
+                                    <i class="asterisk icon"></i>
+                                </div>
+                            </div>
+                            <br>  
+                        </div>
+                        <div align="center">
+                            <span>Tiempo estimado : </span><span id="tiempo_estimado">0 días, 0 horas, 0 minutos</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <span style="text-align: center;margin:0 0 4% 0;"></span>                                    
+                    </div>
+                    <div style="clear:both;"></div>
 
-
-        
-</form>        
-        
-        
+                    <div align="center">
+                        <div>
+                            <a class="ui massive primary button" href="javascript:;" onclick="calculaTiempo() + calculaValor()">Simular</a>
+                            <br>
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                        <div  align="center">
+                            <span>CLP $</span><span id="monto">--</span>
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <br>
+                    <br>  
+                    <button type="submit" class="btn btn-primary">Emitir Presupuesto</button>
+                </div>
+            </div>                            
+        </form>        
     </body>
 </html>
 

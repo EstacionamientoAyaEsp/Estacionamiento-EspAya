@@ -14,9 +14,7 @@
     </head>
     <body>
         <%@include file="insert/NavvarFb.html" %>
-        <div>
-        <%@include file="insert/menulateralfb.html" %>
-        </div>
         <h1 style="text-align: center">Sitio Web En Desarrollo</h1>
+        
     </body>
 </html>

@@ -162,19 +162,9 @@ public class CotizacionBean implements CotizacionBeanLocal {
     
     int valorDia = dias*15000;
     int valorHora = horas*1000;
-    int valorMinuto=tMinutos;
-        
-    if (minutos<31){
-        valorMinuto=500;
-    }else{
-        valorMinuto=tMinutos*16;
-    }
-
-    int total= valorDia+valorHora+valorMinuto;
-    
-            
+    int valorMinuto=tMinutos*15;
+    int total= valorDia+valorHora+valorMinuto;         
     String  monto = String.valueOf(total);
-
     return monto;
     }
     

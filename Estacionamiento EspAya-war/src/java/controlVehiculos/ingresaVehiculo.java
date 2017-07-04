@@ -65,16 +65,22 @@ public class ingresaVehiculo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ingresaVehiculo</title>");            
+            out.println("<link href=\"css/semantic.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+            out.println("<title>Servlet ingresaVehiculo</title>"); 
+            out.println("<meta http-equiv=\"Refresh\" content=\"3;url=http://localhost:8080/Estacionamiento_EspAya-war/controlVehicular.jsp\">");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ingresaVehiculo at</h1>");
+            out.println("<div class=\"ui center aligned segment\">");
+            out.println("<h1>Registro exitoso</h1>");
             out.println("<h2>Placa Patente: " + placaPatente + "</h2>");
             out.println("<p>Fecha: " + fechaIngreso+ "</p>");
             out.println("<p>Hora: " + horaEntrada+ "</p>");
+            out.println("</div>");
             out.println("<br>");
             out.println("<br>");
-            out.println("<br> <a href='controlVehicular.jsp'> Volver a control vehicular </a>");
+            out.println("<div align=\"center\">");
+            out.println("<a href='controlVehicular.jsp' class=\"ui massive teal button\"> Volver a control vehicular </a>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }

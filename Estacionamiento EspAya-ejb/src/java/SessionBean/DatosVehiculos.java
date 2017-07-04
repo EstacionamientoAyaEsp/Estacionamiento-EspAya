@@ -26,7 +26,7 @@ public class DatosVehiculos implements DatosVehiculosLocal {
         Calendar hoy = Calendar.getInstance();
         
         int dia=hoy.get(Calendar.DAY_OF_MONTH);
-        int mes=hoy.get(Calendar.MONTH);
+        int mes=hoy.get(Calendar.MONTH)+1;
         int anio=hoy.get(Calendar.YEAR);
         
         String fecha=dia+"-"+mes+"-"+anio;
@@ -201,15 +201,15 @@ public class DatosVehiculos implements DatosVehiculosLocal {
          
         }
     
-        long minutos=d2.getTime() - d1.getTime();
+        long minuto=d2.getTime() - d1.getTime();
     
-        long tiempoMinutos=minutos/(1000*60);
+        long tiempoMinutos=minuto/(1000*60);
         
         int dias= (int)((tiempoMinutos/60)/24);
         int horas =(int) ((tiempoMinutos - dias*60*24)/60);
-        minutos= (int) (tiempoMinutos-(dias*60*24)-(horas*60));
+        int minutos= (int) (tiempoMinutos-(dias*60*24)-(horas*60));
         
-        if (dias>1 || horas>1 || minutos>5){
+        if (dias>1 || horas>1 || minutos>2){
             modifica=false;
         }
         
